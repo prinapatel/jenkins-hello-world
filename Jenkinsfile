@@ -1,7 +1,7 @@
 #!/usr/bin/env/groovy
 
 pipeline {
-    agent any 
+    agent { dockerfile true } 
     stages {
         stage('Stage 1') {
             steps {
@@ -9,5 +9,10 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
+		stage('Python and Docker Statge') {
+			steps {
+				sh 'python --version'	
+			}
+		}
     }
 }
